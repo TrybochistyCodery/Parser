@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace parser
 {
@@ -15,6 +17,11 @@ namespace parser
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
