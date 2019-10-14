@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Xml.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenQA.Selenium;
@@ -96,6 +97,7 @@ namespace parser
                     else
                     {
                         a = "Количество на складе: " + a;
+                        
                     }
                         
                     richTextBox1.AppendText(a + "\n");
