@@ -84,7 +84,6 @@ namespace parser
                 }
                 string ClassToGet = "amount";
                 links = document.DocumentNode.SelectNodes("//span[@class='" + ClassToGet + "']");
-                int ii = 0;
                 foreach (HtmlNode link in links)
                 {
                     string a = link.InnerHtml;
@@ -93,21 +92,13 @@ namespace parser
                         a = a.Replace("<i>", "");
                         a = a.Replace("</i>", "");
                         a = "Цена: " + a;
-                        ii++;
                     }
                     else
                     {
                         a = "Количество на складе: " + a;
-                        ii++;
+                    }
                         
-                    }
-                    if(ii==1)
-                    {
-                        richTextBox1.AppendText(a + "\n");
-                        ii = 0;
-                        break;
-                    }
-                   
+                    richTextBox1.AppendText(a + "\n");
                 }
                 richTextBox1.AppendText("\n-------------------------------------------\n");
                
