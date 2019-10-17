@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using HtmlAgilityPack;
 using System.Threading;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace parser
 {
@@ -126,41 +128,49 @@ namespace parser
                     //var pageContent = LoadPage(@"https://vk.com");
                     var document = new HtmlAgilityPack.HtmlDocument();
                     document.LoadHtml(pageContent);
-                    string ClassToGet = "itm-list-link";
+                    string ClassToGet = "catalog-product__image-link";
                     HtmlNodeCollection links = document.DocumentNode.SelectNodes("//a[@class='" + ClassToGet + "']");
                     foreach (HtmlNode link in links)
                     {
                         string hrefValue = link.GetAttributeValue("href", string.Empty);
-                        if (hrefValue.IndexOf("id/") == -1)
+                        if (hrefValue.IndexOf("item/") == -1)
                             continue;
-                        richTextBox2.AppendText("https://gifts.ru" + hrefValue + "\n");
+                        richTextBox2.AppendText("https://www.oasiscatalog.com" + hrefValue + "\n");
                     }
                 }
                 else
                 {
+                    Thread.Sleep(500);
                     try
                     {
-                        var test = LoadPage(textBox1.Text + "/page" + i, this);
+                        var test = LoadPage(textBox1.Text + "?page=" + i, this);
                     }catch
                     {
                         break;
                     }
 
-                    var pageContent = LoadPage(textBox1.Text + "/page" + i, this);
+                    var pageContent = LoadPage(textBox1.Text + "?page=" + i, this);
                     var document = new HtmlAgilityPack.HtmlDocument();
                     document.LoadHtml(pageContent);
-                    string ClassToGet = "itm-list-link";
+                    string ClassToGet = "catalog-product__image-link";
                     HtmlNodeCollection links = document.DocumentNode.SelectNodes("//a[@class='" + ClassToGet + "']");
                     foreach (HtmlNode link in links)
                     {
                         string hrefValue = link.GetAttributeValue("href", string.Empty);
-                        if (hrefValue.IndexOf("id/") == -1)
+                        if (hrefValue.IndexOf("item/") == -1)
                             continue;
-                        richTextBox2.AppendText("https://gifts.ru" + hrefValue + "\n");
+                        richTextBox2.AppendText("https://www.oasiscatalog.com" + hrefValue + "\n");
                     }
                 }
-                i++;
+
                 
+                i++;
+                if (i > 22)
+                {
+                    break;
+                }
+                Debug.WriteLine(i);
+
 
             }
         
