@@ -84,7 +84,7 @@ namespace parser
                 }
                 string ClassToGet = "amount";
                 links = document.DocumentNode.SelectNodes("//span[@class='" + ClassToGet + "']");
-                int ii = 0;
+              
                 foreach (HtmlNode link in links)
                 {
                     string a = link.InnerHtml;
@@ -93,20 +93,17 @@ namespace parser
                         a = a.Replace("<i>", "");
                         a = a.Replace("</i>", "");
                         a = "Цена: " + a;
-                        ii++;
+                       
                     }
                     else
                     {
                         a = "Количество на складе: " + a;
-                        ii++;
+                    
                         
                     }
-                    if(ii==1)
-                    {
+                 
                         richTextBox1.AppendText(a + "\n");
-                        ii = 0;
-                        break;
-                    }
+                
                    
                 }
                 richTextBox1.AppendText("\n-------------------------------------------\n");
@@ -123,54 +120,22 @@ namespace parser
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
+
+            gifts a = new gifts();
+            List<string> q =  a.LoadUrlsInCatalog(textBox1.Text, Convert.ToInt32(numericUpDown1.Value));
             richTextBox2.Clear();
-            int i = 1;
-            while (true)
+            foreach (string current in q)
             {
-                if(i == 1)
-                {
-                    var pageContent = LoadPage(textBox1.Text, this);
-                    //var pageContent = LoadPage(@"https://vk.com");
-                    var document = new HtmlAgilityPack.HtmlDocument();
-                    document.LoadHtml(pageContent);
-                    string ClassToGet = "itm-list-link";
-                    HtmlNodeCollection links = document.DocumentNode.SelectNodes("//a[@class='" + ClassToGet + "']");
-                    foreach (HtmlNode link in links)
-                    {
-                        string hrefValue = link.GetAttributeValue("href", string.Empty);
-                        if (hrefValue.IndexOf("id/") == -1)
-                            continue;
-                        richTextBox2.AppendText("https://gifts.ru" + hrefValue + "\n");
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        var test = LoadPage(textBox1.Text + "/page" + i, this);
-                    }catch
-                    {
-                        break;
-                    }
-
-                    var pageContent = LoadPage(textBox1.Text + "/page" + i, this);
-                    var document = new HtmlAgilityPack.HtmlDocument();
-                    document.LoadHtml(pageContent);
-                    string ClassToGet = "itm-list-link";
-                    HtmlNodeCollection links = document.DocumentNode.SelectNodes("//a[@class='" + ClassToGet + "']");
-                    foreach (HtmlNode link in links)
-                    {
-                        string hrefValue = link.GetAttributeValue("href", string.Empty);
-                        if (hrefValue.IndexOf("id/") == -1)
-                            continue;
-                        richTextBox2.AppendText("https://gifts.ru" + hrefValue + "\n");
-                    }
-                }
-                i++;
-                
-
+                richTextBox2.AppendText(current + "\n");
             }
-        
+            MessageBox.Show("Успех");
+
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            label2.Text = ((RichTextBox)sender).Lines.Count().ToString();
         }
     }
 }
