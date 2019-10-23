@@ -28,7 +28,8 @@ namespace parser
             Thread.Sleep(50);
             var result = "";
             var request = (HttpWebRequest)WebRequest.Create(url);
-            var response = (HttpWebResponse)request.GetResponse();
+            var response = (HttpWebResponse)request.
+                GetResponse();
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -120,8 +121,6 @@ namespace parser
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
-
             gifts a = new gifts();
             List<string> q =  a.LoadUrlsInCatalog(textBox1.Text, Convert.ToInt32(numericUpDown1.Value));
             richTextBox2.Clear();
