@@ -136,5 +136,18 @@ namespace parser
         {
             label2.Text = ((RichTextBox)sender).Lines.Count().ToString();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            oasisgifts a = new oasisgifts();
+            List<string> q = a.LoadUrlsInCatalog(textBox1.Text, Convert.ToInt32(numericUpDown1.Value));
+            richTextBox4.Clear();
+            foreach (string current in q)
+            {
+                richTextBox4.AppendText(current + "\n");
+            }
+            MessageBox.Show("Успех");
+
+        }
     }
 }

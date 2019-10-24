@@ -84,12 +84,12 @@ namespace parser
                     var pageContent = LoadPage(catalog, sleep);
                     var document = new HtmlAgilityPack.HtmlDocument();
                     document.LoadHtml(pageContent);
-                    string ClassToGet = "itm-list-link";
+                    string ClassToGet = "catalog-product mass-item";
                     HtmlNodeCollection links = document.DocumentNode.SelectNodes("//a[@class='" + ClassToGet + "']");
                     foreach (HtmlNode link in links)
                     {
                         string hrefValue = link.GetAttributeValue("href", string.Empty);
-                        if (hrefValue.IndexOf("id/") != -1)
+                        if (hrefValue.IndexOf("item/") != -1)
                         {
                             URLs.Add("https://www.oasiscatalog.com" + hrefValue);
                         }
@@ -103,21 +103,21 @@ namespace parser
                 {
                     try
                     {
-                        var test = LoadPage(catalog + "/page" + i, sleep);
+                        var test = LoadPage(catalog + "?page=" + i, sleep);
                     }
                     catch
                     {
                         break;
                     }
-                    var pageContent = LoadPage(catalog + "/page" + i, sleep);
+                    var pageContent = LoadPage(catalog + "?page=" + i, sleep);
                     var document = new HtmlAgilityPack.HtmlDocument();
                     document.LoadHtml(pageContent);
-                    string ClassToGet = "itm-list-link";
+                    string ClassToGet = "catalog-product mass-item";
                     HtmlNodeCollection links = document.DocumentNode.SelectNodes("//a[@class='" + ClassToGet + "']");
                     foreach (HtmlNode link in links)
                     {
                         string hrefValue = link.GetAttributeValue("href", string.Empty);
-                        if (hrefValue.IndexOf("id/") != -1)
+                        if (hrefValue.IndexOf("item/") != -1)
                         {
                             URLs.Add("https://www.oasiscatalog.com" + hrefValue);
                         }

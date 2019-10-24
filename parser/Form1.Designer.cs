@@ -62,7 +62,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(124, 11);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(159, 20);
             this.textBox1.TabIndex = 0;
@@ -71,7 +71,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(110, 485);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 24);
             this.button1.TabIndex = 1;
@@ -94,7 +94,7 @@
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.Location = new System.Drawing.Point(378, 2);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(729, 650);
             this.richTextBox1.TabIndex = 3;
@@ -103,7 +103,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(110, 457);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 24);
             this.button2.TabIndex = 4;
@@ -114,7 +114,7 @@
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(8, 77);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(288, 331);
             this.richTextBox2.TabIndex = 5;
@@ -124,7 +124,7 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(8, 436);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(2);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(287, 19);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -137,7 +137,7 @@
             this.tabControl1.Controls.Add(this.oasiscatalog);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1117, 680);
@@ -156,9 +156,9 @@
             this.gifts.Controls.Add(this.richTextBox2);
             this.gifts.Controls.Add(this.button1);
             this.gifts.Location = new System.Drawing.Point(4, 22);
-            this.gifts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gifts.Margin = new System.Windows.Forms.Padding(2);
             this.gifts.Name = "gifts";
-            this.gifts.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gifts.Padding = new System.Windows.Forms.Padding(2);
             this.gifts.Size = new System.Drawing.Size(1109, 654);
             this.gifts.TabIndex = 0;
             this.gifts.Text = "gifts.ru";
@@ -167,7 +167,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(88, 46);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -204,9 +204,9 @@
             // happygifts
             // 
             this.happygifts.Location = new System.Drawing.Point(4, 22);
-            this.happygifts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.happygifts.Margin = new System.Windows.Forms.Padding(2);
             this.happygifts.Name = "happygifts";
-            this.happygifts.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.happygifts.Padding = new System.Windows.Forms.Padding(2);
             this.happygifts.Size = new System.Drawing.Size(1109, 654);
             this.happygifts.TabIndex = 1;
             this.happygifts.Text = "happygifts.ru";
@@ -225,7 +225,7 @@
             this.oasiscatalog.Controls.Add(this.richTextBox4);
             this.oasiscatalog.Controls.Add(this.button4);
             this.oasiscatalog.Location = new System.Drawing.Point(4, 22);
-            this.oasiscatalog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.oasiscatalog.Margin = new System.Windows.Forms.Padding(2);
             this.oasiscatalog.Name = "oasiscatalog";
             this.oasiscatalog.Size = new System.Drawing.Size(1109, 654);
             this.oasiscatalog.TabIndex = 2;
@@ -317,6 +317,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Получить ссылки";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // richTextBox4
             // 
@@ -343,7 +344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 680);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Парсер";
             this.tabControl1.ResumeLayout(false);
