@@ -196,6 +196,59 @@ namespace parser
             }
 
         }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            progressBar2.Maximum = 100;
+            catalogLoadTimer.Tag = button3;
+            catalogLoadTimer.Enabled = true;
+            button3.Enabled = false;
+            button3.Text = "Загрузка";
+
+            var progress = new Progress<int>(s => progressBar2.Value = s);
+            oasisgifts a = new oasisgifts();
+
+
+            List<string> result = await Task.Factory.StartNew<List<string>>(
+                () => a.LoadUrlsInCatalog(textBox2.Text, Convert.ToInt32(numericUpDown2.Value)),
+                TaskCreationOptions.LongRunning);
+
+            foreach (string current in result)
+            {
+                richTextBox4.AppendText(current + "\n");
+            }
+            button3.Enabled = true;
+            catalogLoadTimer.Enabled = false;
+            button2.Text = "Получить ссылки";
+
+        }
+
+        private void richTextBox4_TextChanged(object sender, EventArgs e)
+        {
+            label5.Text = ((RichTextBox)sender).Lines.Count().ToString();
+        }
+
+        private async void button4_Click(object sender, EventArgs e)
+        {
+            progressBar2.Maximum = richTextBox2.Lines.Count();
+
+
+
+            var progress = new Progress<int>(s => progressBar2.Value = s);
+            oasisgifts gift = new oasisgifts();
+            string[] URLSsToParse = richTextBox4.Lines.ToArray();
+
+            List<string> result = await Task.Factory.StartNew<List<string>>(
+                () => gift.GetGoodsInfo(URLSsToParse, progress, Convert.ToInt32(numericUpDown2.Value)),
+                TaskCreationOptions.LongRunning);
+            foreach (string current in result)
+            {
+                richTextBox1.AppendText(current);
+                //richTextBox1.AppendText("\n\n\n");
+
+            }
+            progressBar2.Value = progressBar2.Maximum;
+        }
     }
 
 
